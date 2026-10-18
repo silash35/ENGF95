@@ -32,12 +32,24 @@ def G_sp_to_ctrl(G_sym):
     return ctrl.TransferFunction(num, den)
 
 
-def step(
-    t, y0: float, step_time: float = 0.2, gain: float = 1.1, disturb: bool = False
-):
+gain = 1.5
+
+
+def step(t, y0: float, step_time: float = 0.2, disturb: bool = False):
     y1 = gain * y0
 
     if not disturb:
         return y0 if np.isscalar(t) else np.full_like(t, y0, dtype=float)
 
     return np.where(t < step_time, y0, y1)
+
+
+def pulse(
+    t, y0: float, step_time: float = 0.2, end_time: float = 2.5, disturb: bool = False
+):
+    y1 = gain * y0
+
+    if not disturb:
+        return y0 if np.isscalar(t) else np.full_like(t, y0, dtype=float)
+
+    return np.where((t >= step_time) & (t < end_time), y1, y0)
