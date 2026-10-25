@@ -16,14 +16,14 @@ plt.rcParams.update(
 save_folder = "../figures/"
 
 
-def plot_or_show(save_path=None):
+def plot_and_show(save_path=None):
     if save_path is None:
         plt.show()
     else:
         save_path = save_folder + save_path + ".png"
         plt.savefig(save_path)
-        print(f"Plot saved to {save_path}")
-        plt.close()
+        # print(f"Plot saved to {save_path}")
+        plt.show()
 
 
 def plot_system_inputs(t, u, save_path=None):
@@ -42,7 +42,7 @@ def plot_system_inputs(t, u, save_path=None):
         ax.legend()
         ax.set_xlabel("Tempo / h")
 
-    plot_or_show(save_path)
+    plot_and_show(save_path)
 
 
 def plot_system_outputs(t, y, save_path=None):
@@ -78,7 +78,7 @@ def plot_system_outputs(t, y, save_path=None):
     axs[0, 0].set_ylabel(f"Temperatura / {output_units[0]}")
     axs[1, 0].set_ylabel("Composição")
 
-    plot_or_show(save_path)
+    plot_and_show(save_path)
 
 
 def pzplot(G, save_path=None):
@@ -102,7 +102,7 @@ def pzplot(G, save_path=None):
     if len(zeros) > 0 or len(poles) > 0:
         ax.legend()
 
-    plot_or_show(save_path)
+    plot_and_show(save_path)
 
 
 def plot_fft(t, y, save_path=None):
@@ -127,4 +127,4 @@ def plot_fft(t, y, save_path=None):
     plt.xlabel(r"Frequência angular / (rad$\cdot$h$^{-1}$)")
     plt.ylabel("Magnitude")
 
-    plot_or_show(save_path)
+    plot_and_show(save_path)

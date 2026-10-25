@@ -1,6 +1,7 @@
 import control as ctrl
 import numpy as np
 import sympy as sp
+from IPython.display import Math, display
 
 input_labels = ["$F_{f1}$", "$F_{f2}$", "$F_R$"]
 output_labels = [
@@ -20,6 +21,10 @@ output_names = ["T1", "T2", "T3", "xA1", "xB1", "xA2", "xB2", "xA3", "xB3"]
 
 output_units = ["K"] * 3 + ["-"] * 6
 input_units = ["(m$^3\\cdot$h$^{-1}$)"] * 3
+
+
+def show(left, right, digitos=3):
+    display(Math(left + " = " + sp.latex(sp.N(right, digitos))))
 
 
 def G_sp_to_ctrl(G_sym):
