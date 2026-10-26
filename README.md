@@ -12,9 +12,17 @@ O processo é baseado em Pourkargar, Almansoori e Daoutidis (2017). Nele ocorrem
 
 ## 📂 Estrutura do repositório
 
+**A análise completa está nos notebooks da pasta [`src/`](src/).** É lá que estão as explicações, as equações, o código e os resultados: cada notebook mistura texto e código em Python, e o GitHub os renderiza direto no navegador, então não é preciso rodar nada para ler.
+
+Os notebooks são numerados e devem ser lidos em ordem, porque um pode reaproveitar os resultados dos anteriores.
+
+- **`src/` → notebooks em Python que explicam e resolvem cada etapa da análise (o conteúdo principal)**
 - `pyproject.toml` → dependências e configuração do projeto, gerenciado com [uv](https://docs.astral.sh/uv/)
-- `src/` → notebooks em Python que explicam e resolvem cada etapa da análise
-  - `src/lib/` → funções auxiliares reutilizadas pelos notebooks
+- `uv.lock` → versões exatas das dependências, geradas pelo uv, para reproduzir o mesmo ambiente
+- `src/lib/` → funções auxiliares reutilizadas pelos notebooks
+- `outputs/` → arquivos exportados por um notebook
+- `figures/` → figuras geradas pelos notebooks e imagens usadas na documentação
+- `LaTeX/` → código-fonte em LaTeX dos slides para o trabalho
 
 ## Referência
 
